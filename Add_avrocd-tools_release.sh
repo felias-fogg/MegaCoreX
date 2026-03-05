@@ -2,15 +2,15 @@
 
 OWNER=felias-fogg  # Github username
 AUTHOR=MCUdude
-REPOSITORY=MegaCore
+REPOSITORY=MegaCoreX
 
-AVROCD_TOOLS_VERSION=$1
+AVROCD_TOOLS_VERSION=${1#v}
 
 if [ -z "$AVROCD_TOOLS_VERSION" ]; then
     AVROCD_TOOLS_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/latest | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
 fi
 
-CHECK_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/tags/$AVROCD_TOOLS_VERSION | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
+CHECK_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/tags/v${AVROCD_TOOLS_VERSION} | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
 
 if [ "x${CHECK_VERSION}" != "x${AVROCD_TOOLS_VERSION}" ]; then
     echo "'${AVROCD_TOOLS_VERSION}' is not a known version identifier"
@@ -96,10 +96,8 @@ printf "File6: ${FILE6}, Size: ${SIZE6}, SHA256: ${SHASUM6}, URL6: ${URL6}\n"
 printf "File7: ${FILE7}, Size: ${SIZE7}, SHA256: ${SHASUM7}, URL7: ${URL7}\n"
 printf "File8: ${FILE8}, Size: ${SIZE8}, SHA256: ${SHASUM8}, URL8: ${URL8}\n"
 
-for ((p = 0 ; p < $(jq '.packages | length' package_${AUTHOR}_${REPOSITORY}_index.json); p++)); do
 cp "package_${AUTHOR}_${REPOSITORY}_index.json" "package_${AUTHOR}_${REPOSITORY}_index.json.tmp"
 jq -r                                  \
---arg ix                   $p \
 --arg avrocd_tools_version $AVROCD_TOOLS_VERSION \
 --arg os_plaform1          $OS_PLATFORM1 \
 --arg os_plaform2          $OS_PLATFORM2 \
@@ -213,7 +211,6 @@ jq -r                                  \
   ]
 }' "package_${AUTHOR}_${REPOSITORY}_index.json.tmp" > "package_${AUTHOR}_${REPOSITORY}_index.json"
 rm "package_${AUTHOR}_${REPOSITORY}_index.json.tmp"
-done
 
 rm $FILE1
 rm $FILE2
