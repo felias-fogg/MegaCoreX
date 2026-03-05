@@ -96,6 +96,38 @@
                                 ((p) == PIN_PC4) || ((p) == PIN_PC5) || ((p) == PIN_PF4) || ((p) == PIN_PF5))
 #endif
 
+// Timer enums
+#ifdef __cplusplus
+enum pwm_timers_t : uint8_t {
+  TCA0_0 = 0,
+  TCA0_1 = 1,
+  TCA0_2 = 2,
+  TCA0_3 = 3,
+  TCA0_4 = 4,
+  TCA0_5 = 5,
+  TCB_0  = 6,
+  TCB_1  = 7,
+  TCB_2  = 8,
+  TCB_3  = 9,
+};
+
+enum timers_route_t : uint8_t {
+  ROUTE_TCA0_PORTA = 0x40,
+  ROUTE_TCA0_PORTC = 0x42,
+  ROUTE_TCA0_PORTD = 0x43,
+  ROUTE_TCA0_PORTE = 0x44,
+  ROUTE_TCA0_PORTF = 0x45,
+  ROUTE_TCB0_PA2   = 0x00,
+  ROUTE_TCB0_PF4   = 0x01,
+  ROUTE_TCB1_PA3   = 0x10,
+  ROUTE_TCB1_PF5   = 0x11,
+  ROUTE_TCB2_PC0   = 0x20,
+  ROUTE_TCB3_PC1   = 0x31,
+  ROUTE_UNTOUCHED  = 0x80,
+};
+
+#endif
+
 // Timer pin swaps
 #define TCA0_PINS PORTMUX_TCA0_PORTC_gc // TCA0 output on PC[0:5]
 #define TCB0_PINS PORTMUX_TCB0_bm       // TCB0 output on PF4 instead of PA2

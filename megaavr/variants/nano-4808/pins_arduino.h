@@ -82,7 +82,6 @@
                                        ((p) >= 22  && (p) <= 25) ? ((p) - 18) : \
                                        ((p) >= 18  && (p) <= 21) ? ((p) - 6)  : NOT_A_PIN)
 
-
 // Timer to use for millis/micros
 #if !defined(MILLIS_USE_TIMERB0) || !defined(MILLIS_USE_TIMERB1) || !defined(MILLIS_USE_TIMERB2)
 #define MILLIS_USE_TIMERB2 // Use TCB2 if nothing else if defined
@@ -98,6 +97,34 @@
 #else // default to MILLIS_USE_TIMERB2
   #define digitalPinHasPWM(p)  (((p) == PIN_PD0) || ((p) == PIN_PD1) || ((p) == PIN_PD2) || ((p) == PIN_PD3) || \
                                 ((p) == PIN_PD4) || ((p) == PIN_PD5) || ((p) == PIN_PA2) || ((p) == PIN_PA3))
+#endif
+
+// Timer enums
+#ifdef __cplusplus
+enum pwm_timers_t : uint8_t {
+  TCA0_0 = 0,
+  TCA0_1 = 1,
+  TCA0_2 = 2,
+  TCA0_3 = 3,
+  TCA0_4 = 4,
+  TCA0_5 = 5,
+  TCB_0  = 6,
+  TCB_1  = 7,
+  TCB_2  = 8,
+};
+
+enum timers_route_t : uint8_t {
+  ROUTE_TCA0_PORTA = 0x40,
+  ROUTE_TCA0_PORTC = 0x42,
+  ROUTE_TCA0_PORTD = 0x43,
+  ROUTE_TCA0_PORTF = 0x45,
+  ROUTE_TCB0_PA2   = 0x00,
+  ROUTE_TCB0_PF4   = 0x01,
+  ROUTE_TCB1_PA3   = 0x10,
+  ROUTE_TCB1_PF5   = 0x11,
+  ROUTE_TCB2_PC0   = 0x20,
+  ROUTE_UNTOUCHED  = 0x80,
+};
 #endif
 
 // Timer pin mapping
