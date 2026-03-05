@@ -4,13 +4,16 @@ OWNER=felias-fogg  # Github username
 AUTHOR=MCUdude
 REPOSITORY=MegaCore
 
-AVROCD_TOOLS_VERSION=$1
+AVROCD_TOOLS_VERSION=${1#v}
 
 if [ -z "$AVROCD_TOOLS_VERSION" ]; then
     AVROCD_TOOLS_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/latest | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
 fi
 
-CHECK_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/tags/$AVROCD_TOOLS_VERSION | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
+CHECK_VERSION=$(curl -s https://api.github.com/repos/$OWNER/PyAvrOCD/releases/tags/v${AVROCD_TOOLS_VERSION} | grep "tag_name" |  awk -F\" '{print $4}' | awk -Fv '{print $2}')
+
+echo $AVROCD_TOOLS_VERSION
+echo $CHECK_VERSION
 
 if [ "x${CHECK_VERSION}" != "x${AVROCD_TOOLS_VERSION}" ]; then
     echo "'${AVROCD_TOOLS_VERSION}' is not a known version identifier"
