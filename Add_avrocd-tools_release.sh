@@ -17,7 +17,7 @@ if [ "x${CHECK_VERSION}" != "x${AVROCD_TOOLS_VERSION}" ]; then
     exit 1
 fi
 
-if grep -q "avrocd-tools-${AVROCD_TOOLS_VERSION}" package_${AUTHOR}_${REPOSITORY}_index.json; then
+if grep -q "avrocd-tools-${AVROCD_TOOLS_VERSION}-x86" package_${AUTHOR}_${REPOSITORY}_index.json; then
     echo "Current version of PyAvrOCD is already in the index"
     exit 1
 fi
