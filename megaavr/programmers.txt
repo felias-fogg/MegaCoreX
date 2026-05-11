@@ -83,4 +83,11 @@ jtagice3_updi.communication=usb
 jtagice3_updi.protocol=jtag3updi
 jtagice3_updi.program.protocol=jtag3updi
 jtagice3_updi.program.tool=avrdude
-atmelice_updi.program.extra_params=
+jtagice3_updi.program.extra_params=
+
+atmel_powerdebugger_updi.name=Power Debugger (AVR) UPDI
+atmel_powerdebugger_updi.communication=usb
+atmel_powerdebugger_updi.protocol=powerdebugger_updi
+atmel_powerdebugger_updi.program.protocol=powerdebugger_updi
+atmel_powerdebugger_updi.program.tool=avrdude
+atmel_powerdebugger_updi.program.extra_params=

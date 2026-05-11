@@ -92,14 +92,6 @@ void detachInterrupt(pin_size_t interruptNumber);
 void setup(void);
 void loop(void);
 
-// Constant checks error handler
-void badArg(const char*) __attribute__((error("")));
-inline __attribute__((always_inline)) void check_constant_pin(pin_size_t pin)
-{
-  if(!__builtin_constant_p(pin))
-    badArg("Digital pin must be a constant");
-}
-
 #ifdef __cplusplus
 } // extern "C"
 #endif

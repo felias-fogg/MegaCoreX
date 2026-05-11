@@ -205,7 +205,7 @@ void digitalWrite(uint8_t pin, uint8_t val)
 inline __attribute__((always_inline)) void digitalWriteFast(uint8_t pin, uint8_t val)
 {
   // Make sure pin is constant and know at compile time
-  check_constant_pin(pin);
+  static_assert(__builtin_constant_p(pin), "Digital pin must be a constant");
 
   // Mega-0, Tiny-1 style IOPORTs
   // Assumes VPORTs exist starting at 0 for each PORT structure
@@ -250,7 +250,7 @@ uint8_t digitalRead(uint8_t pin)
 inline __attribute__((always_inline)) uint8_t digitalReadFast(uint8_t pin)
 {
   // Make sure pin is constant and know at compile time
-  check_constant_pin(pin);
+  static_assert(__builtin_constant_p(pin), "Digital pin must be a constant");
 
   // Mega-0, Tiny-1 style IOPORTs
   // Assumes VPORTs exist starting at 0 for each PORT structure
