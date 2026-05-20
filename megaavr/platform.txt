@@ -6,15 +6,15 @@
 # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
 
 name=MegaCoreX
-version=1.2.0-pre5
+version=1.2.0
 
 # AVR compile variables
 # ---------------------
 
 # Optimization flags for debugging
-compiler.optimization_flags=-Os -ggdb3 -DNDEBUG 
-compiler.optimization_flags.release=-Os -ggdb3 -DNDEBUG 
-compiler.optimization_flags.debug=-Og -ggdb3 -DDEBUG 
+compiler.optimization_flags=-Os -ggdb3 -DNDEBUG
+compiler.optimization_flags.release=-Os -ggdb3 -DNDEBUG
+compiler.optimization_flags.debug=-Og -ggdb3 -DDEBUG
 
 compiler.warning_flags=-w
 compiler.warning_flags.none=-w
