@@ -381,6 +381,12 @@ menu.bootloader=Bootloader
 4808.menu.clock.internal_1MHz.build.oscillator=
 4808.menu.clock.internal_1MHz.build.f_cpu=1000000L
 
+4808.menu.clock.external_20MHz=External 20 MHz
+4808.menu.clock.external_20MHz.upload.speed=115200
+4808.menu.clock.external_20MHz.bootloader.OSCCFG=0x01
+4808.menu.clock.external_20MHz.build.oscillator=-DUSE_EXTERNAL_OSCILLATOR
+4808.menu.clock.external_20MHz.build.f_cpu=20000000L
+
 4808.menu.clock.external_16MHz=External 16 MHz
 4808.menu.clock.external_16MHz.upload.speed=115200
 4808.menu.clock.external_16MHz.bootloader.OSCCFG=0x01
