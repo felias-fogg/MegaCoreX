@@ -911,7 +911,7 @@
           ]
         },
         {
-          "name": "MegaCoreX",
+          "name": "MegaCoreX (Debug enabled)",
           "architecture": "megaavr",
           "version": "1.2.0-pre1",
           "category": "Contributed",
@@ -969,7 +969,7 @@
           ]
         },
         {
-          "name": "MegaCoreX",
+          "name": "MegaCoreX (Debug enabled)",
           "architecture": "megaavr",
           "version": "1.2.0-pre2",
           "category": "Contributed",
@@ -1027,7 +1027,7 @@
           ]
         },
         {
-          "name": "MegaCoreX",
+          "name": "MegaCoreX (Debug enabled)",
           "architecture": "megaavr",
           "version": "1.2.0-pre3",
           "category": "Contributed",
@@ -1087,7 +1087,7 @@
         {
           "name": "MegaCoreX",
           "architecture": "megaavr",
-          "version": "1.2.0-pre4",
+          "version": "1.2.0-pre4 (Debug enabled)",
           "category": "Contributed",
           "url": "https://felias-fogg.github.io/MegaCoreX/MegaCoreX-1.2.0-pre4.tar.bz2",
           "archiveFileName": "MegaCoreX-1.2.0-pre4.tar.bz2",
@@ -1143,7 +1143,7 @@
           ]
         },
         {
-          "name": "MegaCoreX",
+          "name": "MegaCoreX (Debug enabled)",
           "architecture": "megaavr",
           "version": "1.2.0-pre5",
           "category": "Contributed",
